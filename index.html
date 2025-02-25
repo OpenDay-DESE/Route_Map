@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Images</title>
+    <title>Responsive Images with Clickable List</title>
     <style>
         body {
             display: flex;
@@ -14,31 +14,136 @@
             margin: 0;
             background-color: #f4f4f4;
         }
+        .main-container {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            max-width: 1200px;
+            position: relative;
+        }
+        .list {
+            width: 15%;
+            min-width: 120px;
+            text-align: left;
+            padding: 5px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin: 0 20px;
+        }
+        .list ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .list li {
+            background: #ddd;
+            margin: 3px 0;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 14px;
+        }
+        .list li:hover {
+            background: #bbb;
+        }
         .image-container {
-            width: 90%; /* Makes sure it fits within the screen */
-            max-width: 600px; /* Prevents it from being too wide on big screens */
-            margin: 10px 0;
+            width: 50%;
+            max-width: 600px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
         }
         .image-container img {
-            width: 100%; /* Makes images responsive */
-            height: auto; /* Keeps the aspect ratio */
-            border-radius: 10px; /* Optional: Adds rounded corners */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds shadow for better visibility */
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        .popup {
+            position: absolute;
+            background: darkred;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            display: none;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .popup::after {
+            content: "";
+            position: absolute;
+            top: 100%; /* Moves the arrow below the popup */
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 10px;
+            border-style: solid;
+            border-color: darkred transparent transparent transparent;
+        }
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .list {
+                width: 80%;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            .image-container {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-
-    <div class="image-container">
-        <img src="img/gnd_floor.png" alt="Ground Floor">
+    <h1 style="text-align: center; margin-top: 20px;">DEMO LOCATOR</h1>
+    <div class="main-container">
+        <div class="list">
+            <ul>
+                <li onclick="showPopup('popup1')">A. Indigenous fabrication of flexible neural implants</li>
+                <li onclick="showPopup('popup2')">B. Optical modality for breast cancer tumor delineation</li>
+                <li onclick="showPopup('popup3')">C. Cytology Scanner</li>
+            </ul>
+        </div>
+        <div class="image-container">
+            <img src="img/gnd_floor.png" alt="Ground Floor">
+            <div id="popup1" class="popup" style="top: 17%; left: 32%;">Demo A</div>
+            <div id="popup2" class="popup" style="top: 19%; left: 32%;">Demo B</div>
+            <div id="popup3" class="popup" style="top: 21%; left: 32%;">Demo C</div>
+            <img src="img/first_floor.png" alt="First Floor">
+            <div id="popup4" class="popup" style="top: 22%; left: 31%;">Demo D</div>
+            <div id="popup5" class="popup" style="top: 22%; left: 29%;">Demo E</div>
+            <div id="popup6" class="popup" style="top: 22%; left: 27%;">Demo F</div>
+            <img src="img/second_floor.png" alt="Second Floor">
+            <div id="popup7" class="popup" style="top: 21%; left: 26%;">Demo G</div>
+            <div id="popup8" class="popup" style="top: 19%; left: 26%;">Demo H</div>
+            <div id="popup9" class="popup" style="top: 17%; left: 26%;">Demo I</div>
+        </div>
+        <div class="list">
+            <ul>
+                <li onclick="showPopup('popup4')">D. Visuovein</li>
+                <li onclick="showPopup('popup5')">E. HFIS: Handheld Fluorescence Imaging System</li>
+                <li onclick="showPopup('popup6')">F. QCM for liver cirrhosis screening</li>
+                <li onclick="showPopup('popup7')">G. Electrical Impedance-based Multiplexed Biosensor for Point-of-Care Diagnosis/<br>Biosensing Platform for Oran Cancer Screening</li>
+                <li onclick="showPopup('popup8')">H. Headband for hearing screening/EEG based Auditory Hearing Screening Systems</li>
+                <li onclick="showPopup('popup9')">I. Polarization-based Optical system for Heart Tissue Characterization</li>
+            </ul>
+        </div>
     </div>
-    <div class="image-container">
-        <img src="img/first_floor.png" alt="First Floor">
-    </div>
-    <div class="image-container">
-        <img src="img/second_floor.png" alt="Second Floor">
-    </div>
-
+    <script>
+        function showPopup(popupId) {
+            document.querySelectorAll('.popup').forEach(popup => popup.style.display = 'none');
+            document.getElementById(popupId).style.display = 'block';
+            setTimeout(() => {
+                document.getElementById(popupId).style.display = 'none';
+            }, 3000);
+        }
+    </script>
 </body>
 </html>
