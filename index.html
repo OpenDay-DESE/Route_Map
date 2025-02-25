@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaflet Map</title>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <style>
+    /* 🔹 Make sure the body takes the full height */
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        /* display: flex; */
+        /* justify-content: center;  /* Center horizontally */
+        /*align-items: center;     /* Center vertically */
+
+        text-align: center; /* Ensures text stays centered */
+        display: block; /* Makes sure everything stacks vertically */
+    }
+
+    /* Set a fixed size for the map - For laptop*/
+    #map {
+        width: 62vw;   /* 62% of viewport width */
+        height: 62vh;  /* 62% of viewport height */
+        border: 2px solid #333; /* Optional: border for visibility */
+        margin: 0 auto;
+    }
+
+
+    /* For MOBILE */
+    /* #map {
+    width: 100vw;  
+    height: 70vh;   
+    border: 2px solid #333;
+    margin: 0 auto;
+    } */
+
+    #popupBtn {
+    position: absolute;
+    top: 20px;   /* Adjust to move down from the top */
+    left: 20px;  /* Adjust to move right from the left */
+    z-index: 1000; /* Ensures it appears above the map */
+    padding: 4px 4px;
+    font-size: 14px;
+    background-color: darkblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+
+    #popupBtn:hover {
+        background-color: darkred;
+    }
+
+      /* Custom Popup Styling */
+  .custom-popup .leaflet-popup-content-wrapper {
+      background: darkred; /* Light Red Background */
+      color: white; /* Dark text */
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 20px;
+      padding: 1px;
+      text-align: center;
+  }
+
+  /* 🔹 Custom Popup Arrow */
+  .custom-popup .leaflet-popup-tip {
+      background: darkred; /* Match popup background */
+  }
+
+  /* FOR LAPTOP*/
+  #map-text {
+    text-align: left;  /* Center the text */
+    margin-top: 20px;  /*  Add space above the text */
+    font-size: 18px;
+    color: black;
+
+  }
+
+    #map-text ol {
+    text-align: left;
+    margin: 10px auto;
+    display: inline-block;
+    font-size: 16px;
+    color: #333; 
+} 
+
+/* FOR MOBILE*/
+  /* 🔹 Adjust text and list for mobile screens */
+  /* #map-text {
+      font-size: 16px; 
+      padding: 10px; 
+  }
+
+  #map-text ol {
+      font-size: 14px;
+      padding-left: 20px; 
+  } */
+
+/* FOR MOBILE - END*/
+
+  #map-text ol li {
+      margin-bottom: 8px;
+  }
+
+  #map-text ol li a {
+      text-decoration: none;
+      color: blue;
+      cursor: pointer;
+  }
+
+  #map-text ol li a:hover {
+      color: darkred; /* Change color on hover */
+  }
+
+  #custom-list {
+      list-style-type: upper-alpha;  /* 🔹 Changes numbers to A, B, C */
+  }
+
+  @media (max-width: 768px) {
+    #map {
+        height: 60vh;  /* Reduce height for smaller screens */
+    }
+    #map-text {
+        font-size: 14px;
+    }
+    #map-text ol {
+        font-size: 12px; /* Reduce font size for small screens */
+    }
+}
+
+
+</style>
+</head>
+<body>
+
+  <!-- <button id="popupBtn">A</button> -->
+  <!-- <div id="map" style="height: 500px;"></div> -->
+  <div id="map"></div>
+
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Your script -->
+  <script src="js/map.js"></script>
+
+  
+    <!-- 🔹 Add Text Below the Map -->
+    <div id="map-text">
+      <h2>Demo Information</h2>
+      <!-- <p>This is a demo map created using Leaflet.js. Click on locations to interact!</p> -->
+      <ol id="custom-list">
+        <li><a href="#" onclick="showPopup(52.22930816609963,21.011922324321958, 'Demo A')">Indigenous fabrication of flexible neural implants</a></li>
+        <li><a href="#" onclick="showPopup(52.229239199671945,21.011927690602935, 'Demo B')">Optical modality for breast cancer tumor delineation</a></li>
+        <li><a href="#" onclick="showPopup(52.22953476932198,21.01015681787272, 'Demo C')">Cytology Scanner</a></li>
+        <li><a href="#" onclick="showPopup(52.22940012345678,21.01180098765432, 'Demo D')">Visuovein</a></li>
+        <li><a href="#" onclick="showPopup(52.22945023456789,21.01175087654321, 'Demo E')">HFIS: Handheld Fluorescence Imaging System</a></li>
+        <li><a href="#" onclick="showPopup(52.22950034567890,21.01170076543210, 'Demo F')">QCM for liver cirrhosis screening</a></li>
+        <li><a href="#" onclick="showPopup(52.22955045678901,21.01165065432109, 'Demo G')">Electrical Impedance-based Multiplexed Biosensor for Point-of-Care Diagnosis/Biosensing Platform for Oral Cancer Screening</a></li>
+        <li><a href="#" onclick="showPopup(52.22960056789012,21.01160054321098, 'Demo H')">Headband for hearing screening/EEG-based Auditory Hearing Screening Systems</a></li>
+        <li><a href="#" onclick="showPopup(52.22965067890123,21.01155043210987, 'Demo I')">Polarization-based Optical system for Heart Tissue Characterization</a></li>
+        <li><a href="#" onclick="showPopup(52.22970078901234,21.01150032109876, 'Demo J')">Gesture recognition using ToF</a></li>
+        <li><a href="#" onclick="showPopup(52.22975089012345,21.01145021098765, 'Demo K')">Haptic navigation</a></li>
+        <li><a href="#" onclick="showPopup(52.22980090123456,21.01140010987654, 'Demo L')">Digital yoga master</a></li>
+        <li><a href="#" onclick="showPopup(52.22985001234567,21.01135009876543, 'Demo M')">TurtleBot-based Cafe Attendant/E-Waiter</a></li>
+        <li><a href="#" onclick="showPopup(52.22990012345678,21.01130008765432, 'Demo N')">E-Security Guard</a></li>
+
+    </ol>
+  </div>
+
+</body>
+</html>
