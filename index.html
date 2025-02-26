@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Images with Clickable List</title>
+    <title>Open Day DESE Demo Route Map</title>
     <style>
         body {
             display: flex;
@@ -90,6 +90,27 @@
                 flex-direction: column;
                 align-items: center;
             }
+            .image-container {
+                order: 1;
+                width: 100%;
+            }
+            .list-heading-wrapper {
+                order: 2;
+                width: 100%;
+                text-align: center;
+                margin-top: 20px;
+            }
+            .list {
+                order: 3;
+                width: 90%;
+                text-align: left;
+                margin-bottom: 10px;
+            }
+        }
+            .main-container {
+                flex-direction: column;
+                align-items: center;
+            }
             .list-heading {
                 order: 1;
                 text-align: center;
@@ -164,6 +185,9 @@
     <h1 style="text-align: center; margin-top: 20px;">DEMO LOCATOR</h1>
     
     <div class="main-container">
+        <div class="list-heading-wrapper">
+            <h2 class="list-heading">List of Demos</h2>
+        </div>
         <h2 class="list-heading">List of Demos</h2>
         <div class="list">
             <ul>
