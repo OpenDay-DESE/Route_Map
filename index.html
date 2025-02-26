@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,10 +16,25 @@
             font-family: Arial, sans-serif;
             scroll-behavior: smooth;
         }
+
+        body {
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+  
+            /* background: linear-gradient(to bottom, #dbeafe, #e9d5ff); */
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
         
         h1 {
             font-size: 32px;
-            color: #333;
+            color: black;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
             margin-bottom: 20px;
         }
@@ -48,12 +62,12 @@
         .list-container li {
             margin-bottom: 5px;
             cursor: pointer;
-            color: #0077cc;
+            color: black;
             transition: color 0.3s;
         }
 
         .list-container li:hover {
-            color: #0055aa;
+            color: darkviolet;
         }
 
         .image-section {
@@ -104,18 +118,24 @@
             border-color: #8B0000 transparent transparent transparent;
         }
 
-        #popup1 { top: 20%; left: 40%; } /* Ground Floor */
-        #popup2 { top: 50%; left: 60%; } /* Ground Floor */
-        #popup3 { top: 70%; left: 30%; } /* Ground Floor */
-        #popup4 { top: 40%; left: 80%; } /* Ground Floor */
+        #popup1 { top: 42%; left: 42%; } 
+        #popup2 { top: 42%; left: 45%; } 
+        #popup3 { top: 55%; left: 41%; } 
+        #popup4 { top: 59%; left: 42%; } 
 
-        #popup5 { top: 25%; left: 50%; } /* First Floor */
-        #popup6 { top: 55%; left: 65%; } /* First Floor */
-        #popup7 { top: 80%; left: 20%; } /* First Floor */
+        #popup5 { top: 65%; left: 42%; } 
+        #popup6 { top: 68%; left: 41%; } 
+        #popup7 { top: 68%; left: 39%; } 
 
-        #popup8 { top: 15%; left: 35%; } /* Second Floor */
-        #popup9 { top: 45%; left: 75%; } /* Second Floor */
-        #popup10 { top: 60%; left: 50%; } /* Second Floor */
+        #popup8 { top: 68%; left: 38%; } 
+        #popup9 { top: 68%; left: 37%; } 
+        #popup10 { top: 68%; left: 35%; } 
+
+        #popup11 { top: 68%; left: 33%; } 
+        #popup12 { top: 68%; left: 32%; } 
+        #popup13 { top: 68%; left: 31%; } 
+        #popup14 { top: 65%; left: 29%; } 
+        #popup15 { top: 61%; left: 29%; } 
 
         @media (max-width: 768px) {
             .content-container {
@@ -130,9 +150,6 @@
             .image-section {
                 width: 100%;
             }
-            .image-container img {
-                width: 90%;
-            }
         }
     </style>
 </head>
@@ -142,12 +159,11 @@
         <div class="list-container">
             <ul>
                 <script>
-                    const items = ["Indigenous fabrication of flexible neural implants", "Optical modality for breast cancer tumor delineation", "Cytology Scanner", "Visuovein", "HFIS: Handheld Fluorescence Imaging System", "QCM for liver cirrhosis screening", 
-                    "Biosensing Platform for Oral Cancer Screening","EEG based Auditory Hearing Screening Systems","Polarization-based Optical system for Heart Tissue Characterization","Gesture recognition using ToF","Haptic Navigation", "Digital yoga master", "E-Waiter", "E-Security Guard","LLM empowered Indoor Air Quality Assessment ​", "Laser Labyrinth", "Maze runner - AI based cars", "Pocket Intrusion: When Your Phone Isn’t Yours Anymore", "Chess Playing Robot", "Buzz-Wire", "XY-plotter with precision servo motor drive​", "Van de graff generator", "Energy Internet", "Autonomous control for RC car", "Range extension of EV by battery Paralleling", 
-                    "Gesture Recognition using mmWave Radar", "Neuromorphic Camera", "Synthetic Aperture Radar Imaging", "Real-time audio and video inference using RAMAN TinyML Accelerator", "SQ-CARS: Scalable Quantum Control and Readout System", "TinyML: Powering the Edge with ML", "TYLOR : TDC-based Low-Overhead Synthesizable Power SCA Countermeasure on FPGAs", "ML-based Hardware for Gesture Recognition at the edge", "Side channels attack on Snow-V Algorithm", "ASIC Implementation of ambipolar gate modulation for graphene Hall-effect magnetic sensor","Highly Sensitive, Low Voltage, Multinuclear Portable NMR System development.", 
-                    "Development of Cesium Based Benchtop Atomic Clock", "Electronics for DNA Nanopore Sequencing: Detection, Amplification, and Signal Processing", "Quantum Random Number Generator using BiCMOS Logic", "Audio Processing on Edge Devices using Machine Learning Algorithms on FPGA Platform", 
-                    "Robotic Arm", "Drone", "Electric vehicle using Theo jansen mechanism", "RC Plane", "Tesla Coil", "Block Drop - The LED Matrix Challenge", "Smart Home System", "Mind the Tilt !",
-                    "Musical Staircase", "Solar panel tracking mechanism", "Relationship between Space Weather and Conditions on Earth using Maxar Satellite Imagery Analysis", "Virtual Shooting", "Drone Maneuvering with Reaction Wheel"];
+                    const items = ["Musical Tesla Coil","Block Drop - The LED Matrix Challenge/ Tetris","Autonomous control for RC car","Energy Internet","Range extension of EV by battery Paralleling","Gesture Recognition using mmWave Radar","Neuromorphic Camera","Real-time audio and video inference using RAMAN TinyML Accelerator","SQ-CARS: Scalable Quantum Control and Readout System","TinyML: Powering the Edge with Machine Learning","Robotic Arm","Building Energy Management System/ Smart Home","Drone Maneuvering with Reaction Wheel","Mind the Tilt !/ Gesture Controlled Robot",
+                    "Virtual Shooting","Indigenous fabrication of flexible neural implants","Optical modality for breast cancer tumor delineation","Cytology Scanner","Visuovein","HFIS: Handheld Fluorescence Imaging System","QCM for liver cirrhosis screening","Electrical Impedance-based Multiplexed Biosensor for Point-of-Care Diagnosis/ Biosensing Platform for Oran Cancer Screening","Headband for hearing screening/EEG based Auditory Hearing Screening Systems","Polarization-based Optical system for Heart Tissue Characterization","Buzz-wire","TYLOR : TDC-based Low-Overhead Synthesizable Power SCA Countermeasure on FPGAs",
+                    "ML-based Hardware for Gesture Recognition at the edge","Side channels attack on Snow-V Algorithm","Chess Playing Robot/The Chess Bot: Brains vs Bytes","Solving Graph Max Cut with FPGA Acceleration","Audio Processing on Edge Devices using Machine Learning Algorithms on FPGA Platform","Solar panel tracking mechanism","Relationship between Space Weather and Conditions on Earth using Maxar Satellite Imagery Analysis","Electric vehicle using Theo jansen mechanism","Maze runner - AI based cars","The Digital Battlefield/ Pocket Intrusion: When Your Phone Isn’t Yours Anymore",
+                    "Cybersecurity Project/XY-plotter with precision servo motor drive","Van de graff generator","Laser Labyrinth","Synthetic Aperture Radar Imaging","Gesture recognition using ToF","Haptic navigation","TurtleBot based Cafe Attendant/E-Waiter","E-Security Guard","Air Quality and Environment Monitoring Platform/LLM empowered Indoor Air Quality Assessment","Digital yoga master","ASIC Implementation of ambipolar gate modulation for graphene Hall-effect magnetic sensor","Highly Sensitive, Low Voltage, Multinuclear Portable NMR System development.","Development of Cesium Based Benchtop Atomic Clock",
+                    "Electronics for DNA Nanopore Sequencing: Detection, Amplification, and Signal Processing","Quantum Random Number Generator using BiCMOS Logic","Drone","Musical Staircase","RC Plane"];
                     items.forEach((item, index) => {
                         document.write(`<li onclick="showPopup('popup${index + 1}', 'image${index < 20 ? 1 : (index < 23 ? 2 : 3)}')">${item}</li>`);
                     });
@@ -159,8 +175,13 @@
             <div class="image-container" id="image1">
                 <img src="img/gnd_floor.png" alt="Ground Floor">
                 <script>
-                    for (let i = 1; i <= 20; i++) {
-                        document.write(`<div id="popup${i}" class="popup">${items[i - 1]}</div>`);
+                    for (let i = 1; i <= 2; i++) {
+                        // document.write(`<div id="popup${i}" class="popup">${items[i - 1]}</div>`);
+                        document.write(`<div id="popup${i}" class="popup">123 - Conf.Room 4</div>`);
+                    }
+                    for (let i = 3; i <= 20; i++) {
+                        // document.write(`<div id="popup${i}" class="popup">${items[i - 1]}</div>`);
+                        document.write(`<div id="popup${i}" class="popup">Classroom 137</div>`);
                     }
                 </script>
             </div>
