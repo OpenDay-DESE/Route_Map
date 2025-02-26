@@ -1,330 +1,195 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open Day DESE Demo Route Map</title>
+    <title>Demo Locator</title>
     <style>
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
             margin: 0;
-            background-color: #f4f4f4;
+            padding: 20px;
+            background: linear-gradient(to bottom, #dbeafe, #e9d5ff);
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
         }
-        .main-container {
-            display: flex;
-            justify-content: space-between;
-            width: 90%;
-            max-width: 1200px;
-            position: relative;
-        }
-        .list {
-            width: 15%;
-            min-width: 120px;
-            text-align: left;
-            padding: 5px;
-            background: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            margin: 0 20px;
-        }
-        .list ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        .list li {
-            background: #ddd;
-            margin: 3px 0;
-            padding: 5px;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: left;
-            font-size: 14px;
-        }
-        .list li:hover {
-            background: #bbb;
-        }
-        .image-container {
-            width: 50%;
-            max-width: 600px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-        .image-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        
+        h1 {
+            font-size: 32px;
+            color: #333;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
             margin-bottom: 20px;
         }
+
+        .content-container {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .list-container {
+            width: 30%;
+            text-align: left;
+            margin-right: 20px;
+        }
+
+        .list-container ul {
+            list-style-type: square;
+            padding: 0;
+            font-size: 14px;
+        }
+
+        .list-container li {
+            margin-bottom: 5px;
+            cursor: pointer;
+            color: #0077cc;
+            transition: color 0.3s;
+        }
+
+        .list-container li:hover {
+            color: #0055aa;
+        }
+
+        .image-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 70%;
+        }
+
+        .image-container {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .image-container img {
+            width: 100%;
+            border: 3px solid black;
+            border-radius: 10px;
+            display: block;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
         .popup {
             position: absolute;
-            background: darkred;
+            background: #8B0000;
             color: white;
-            padding: 8px 12px;
-            border-radius: 5px;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
             display: none;
             text-align: center;
-            white-space: nowrap;
+            font-size: 14px;
+            min-width: 120px;
+            z-index: 100;
         }
+
         .popup::after {
             content: "";
             position: absolute;
-            top: 100%; /* Moves the arrow below the popup */
+            bottom: -18px;
             left: 50%;
             transform: translateX(-50%);
             border-width: 10px;
             border-style: solid;
-            border-color: darkred transparent transparent transparent;
-        }
-        @media (min-width: 769px) {
-            /* Styles for Laptop/Desktop */
-            .main-container {
-                display: flex;
-                justify-content: space-between;
-                width: 90%;
-                max-width: 1200px;
-                position: relative;
-            }
-            .list-heading-wrapper {
-                text-align: center;
-                margin-top: 20px;
-            }
-            .list {
-                width: 15%;
-                min-width: 120px;
-                text-align: left;
-                padding: 5px;
-                background: #fff;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                border-radius: 10px;
-                margin: 0 20px;
-            }
-            .list ul {
-                list-style-type: none;
-                padding: 0;
-                margin: 0;
-            }
-            .list li {
-                background: #ddd;
-                margin: 3px 0;
-                padding: 5px;
-                border-radius: 5px;
-                cursor: pointer;
-                text-align: left;
-                font-size: 14px;
-            }
-            .image-container {
-                width: 50%;
-                max-width: 600px;
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                position: relative;
-            }
+            border-color: #8B0000 transparent transparent transparent;
         }
 
+        #popup1 { top: 20%; left: 40%; } /* Ground Floor */
+        #popup2 { top: 50%; left: 60%; } /* Ground Floor */
+        #popup3 { top: 70%; left: 30%; } /* Ground Floor */
+        #popup4 { top: 40%; left: 80%; } /* Ground Floor */
+
+        #popup5 { top: 25%; left: 50%; } /* First Floor */
+        #popup6 { top: 55%; left: 65%; } /* First Floor */
+        #popup7 { top: 80%; left: 20%; } /* First Floor */
+
+        #popup8 { top: 15%; left: 35%; } /* Second Floor */
+        #popup9 { top: 45%; left: 75%; } /* Second Floor */
+        #popup10 { top: 60%; left: 50%; } /* Second Floor */
+
         @media (max-width: 768px) {
-            .main-container {
+            .content-container {
                 flex-direction: column;
                 align-items: center;
             }
-            .image-container {
-                order: 1;
+            .list-container {
                 width: 100%;
-            }
-            .list-heading-wrapper {
-                order: 2;
-                width: 100%;
-                text-align: center;
-                margin-top: 20px;
-            }
-            .list {
-                order: 3;
-                width: 90%;
                 text-align: left;
-                margin-bottom: 10px;
-                background: none;
-                box-shadow: none;
-                padding: 0;
+                margin-bottom: 20px;
             }
-            .list ul {
-                list-style-type: none;
-                padding: 0;
-                margin: 0;
-            }
-            .list li {
-                background: none;
-                margin: 5px 0;
-                padding: 8px;
-                border-radius: 5px;
-                cursor: pointer;
-                text-align: left;
-                font-size: 16px;
-                transition: background 0.3s;
-            }
-            .list li:hover {
-                background: rgba(200, 0, 0, 0.2);
-            }
-            .main-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .image-container {
-                order: 1;
-                width: 100%;
-            }
-            .list-heading-wrapper {
-                order: 2;
-                width: 100%;
-                text-align: center;
-                margin-top: 20px;
-            }
-            .list {
-                order: 3;
-                width: 90%;
-                text-align: left;
-                margin-bottom: 10px;
-            }
-        }
-            .main-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .list-heading {
-                order: 1;
-                text-align: center;
-                margin-top: 20px;
-            }
-            .image-container {
-                order: 2;
-                width: 100%;
-            }
-            .list {
-                order: 3;
-                width: 90%;
-                text-align: left;
-                margin-bottom: 10px;
-            }
-            .main-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .list {
-                width: 90%;
-                text-align: left;
-                margin-bottom: 10px;
-                order: 2;
-            }
-            .image-container {
-                width: 100%;
-                order: 1;
-            }
-            .list ul {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 0;
-            }
-            .main-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .list {
-                width: 90%;
-                text-align: left;
-                margin-bottom: 10px;
-                order: 2;
-            }
-            .image-container {
-                width: 100%;
-                order: 1;
-            }
-            .list ul {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding: 0;
-            }
-            .main-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .list {
-                width: 80%;
-                text-align: center;
-                margin-bottom: 10px;
-            }
-            .image-container {
+            .image-section {
                 width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <h1 style="text-align: center; margin-top: 20px;">DEMO LOCATOR</h1>
-    
-    <div class="main-container">
-        <div class="list-heading-wrapper">
-            <h2 class="list-heading">List of Demos</h2>
-        </div>
-        <h2 class="list-heading">List of Demos</h2>
-        <div class="list">
+    <h1>Demo Locator</h1>
+    <div class="content-container">
+        <div class="list-container">
             <ul>
-                <li onclick="showPopup('popup1')">A. Indigenous fabrication of flexible neural implants</li>
-                <li onclick="showPopup('popup2')">B. Optical modality for breast cancer tumor delineation</li>
-                <li onclick="showPopup('popup3')">C. Cytology Scanner</li>
+                <script>
+                    const items = ["Indigenous fabrication of flexible neural implants", "Optical modality for breast cancer tumor delineation", "Cytology Scanner", "Visuovein", "HFIS: Handheld Fluorescence Imaging System", "QCM for liver cirrhosis screening", 
+                    "Biosensing Platform for Oral Cancer Screening","EEG based Auditory Hearing Screening Systems","Polarization-based Optical system for Heart Tissue Characterization","Gesture recognition using ToF","Haptic Navigation", "Digital yoga master", "E-Waiter", "E-Security Guard","LLM empowered Indoor Air Quality Assessment ​", "Laser Labyrinth", "Maze runner - AI based cars", "Pocket Intrusion: When Your Phone Isn’t Yours Anymore", "Chess Playing Robot", "Buzz-Wire", "XY-plotter with precision servo motor drive​", "Van de graff generator", "Energy Internet", "Autonomous control for RC car", "Range extension of EV by battery Paralleling", 
+                    "Gesture Recognition using mmWave Radar", "Neuromorphic Camera", "Synthetic Aperture Radar Imaging", "Real-time audio and video inference using RAMAN TinyML Accelerator", "SQ-CARS: Scalable Quantum Control and Readout System", "TinyML: Powering the Edge with ML", "TYLOR : TDC-based Low-Overhead Synthesizable Power SCA Countermeasure on FPGAs", "ML-based Hardware for Gesture Recognition at the edge", "Side channels attack on Snow-V Algorithm", "ASIC Implementation of ambipolar gate modulation for graphene Hall-effect magnetic sensor","Highly Sensitive, Low Voltage, Multinuclear Portable NMR System development.", 
+                    "Development of Cesium Based Benchtop Atomic Clock", "Electronics for DNA Nanopore Sequencing: Detection, Amplification, and Signal Processing", "Quantum Random Number Generator using BiCMOS Logic", "Audio Processing on Edge Devices using Machine Learning Algorithms on FPGA Platform", 
+                    "Robotic Arm", "Drone", "Electric vehicle using Theo jansen mechanism", "RC Plane", "Tesla Coil", "Block Drop - The LED Matrix Challenge", "Smart Home System", "Mind the Tilt !",
+                    "Musical Staircase", "Solar panel tracking mechanism", "Relationship between Space Weather and Conditions on Earth using Maxar Satellite Imagery Analysis", "Virtual Shooting", "Drone Maneuvering with Reaction Wheel"];
+                    items.forEach((item, index) => {
+                        document.write(`<li onclick="showPopup('popup${index + 1}', 'image${index < 20 ? 1 : (index < 23 ? 2 : 3)}')">${item}</li>`);
+                    });
+                </script>
             </ul>
         </div>
-        <div class="image-container">
-            <img src="img/gnd_floor.png" alt="Ground Floor">
-            <div id="popup1" class="popup" style="top: 20%; left: 40%;">Demo A</div>
-            <div id="popup2" class="popup" style="top: 30%; left: 50%;">Demo B</div>
-            <div id="popup3" class="popup" style="top: 40%; left: 60%;">Demo C</div>
-            <img src="img/first_floor.png" alt="First Floor">
-            <div id="popup4" class="popup" style="top: 20%; left: 40%;">Demo D</div>
-            <div id="popup5" class="popup" style="top: 30%; left: 50%;">Demo E</div>
-            <div id="popup6" class="popup" style="top: 40%; left: 60%;">Demo F</div>
-            <img src="img/second_floor.png" alt="Second Floor">
-            <div id="popup7" class="popup" style="top: 20%; left: 40%;">Demo G</div>
-            <div id="popup8" class="popup" style="top: 30%; left: 50%;">Demo H</div>
-            <div id="popup9" class="popup" style="top: 40%; left: 60%;">Demo I</div>
-        </div>
-        <div class="list">
-            <ul>
-                <li onclick="showPopup('popup4')">D. Visuovein</li>
-                <li onclick="showPopup('popup5')">E. HFIS: Handheld Fluorescence Imaging System</li>
-                <li onclick="showPopup('popup6')">F. QCM for liver cirrhosis screening</li>
-                <li onclick="showPopup('popup7')">G. Electrical Impedance-based Multiplexed Biosensor for Point-of-Care Diagnosis/<br>Biosensing Platform for Oran Cancer Screening</li>
-                <li onclick="showPopup('popup8')">H. Headband for hearing screening/EEG based Auditory Hearing Screening Systems</li>
-                <li onclick="showPopup('popup9')">I. Polarization-based Optical system for Heart Tissue Characterization</li>
-            </ul>
+
+        <div class="image-section">
+            <div class="image-container" id="image1">
+                <img src="img/gnd_floor.png" alt="Ground Floor">
+                <script>
+                    for (let i = 1; i <= 20; i++) {
+                        document.write(`<div id="popup${i}" class="popup">${items[i - 1]}</div>`);
+                    }
+                </script>
+            </div>
+
+            <div class="image-container" id="image2">
+                <img src="img/first_floor.png" alt="First Floor">
+                <script>
+                    for (let i = 21; i <= 23; i++) {
+                        document.write(`<div id="popup${i}" class="popup">${items[i - 1]}</div>`);
+                    }
+                </script>
+            </div>
+
+            <div class="image-container" id="image3">
+                <img src="img/second_floor.png" alt="Second Floor">
+                <script>
+                    for (let i = 24; i <= 25; i++) {
+                        document.write(`<div id="popup${i}" class="popup">${items[i - 1]}</div>`);
+                    }
+                </script>
+            </div>
         </div>
     </div>
+
     <script>
-        function scrollToPopup(popupId) {
+        function showPopup(popupId, imageId) {
             const popup = document.getElementById(popupId);
-            if (popup) {
-                popup.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-        }
-        function showPopup(popupId) {
-            scrollToPopup(popupId);
-            document.querySelectorAll('.popup').forEach(popup => popup.style.display = 'none');
-            document.getElementById(popupId).style.display = 'block';
-            setTimeout(() => {
-                document.getElementById(popupId).style.display = 'none';
-            }, 3000);
+            const image = document.getElementById(imageId);
+            
+            document.querySelectorAll('.popup').forEach(p => p.style.display = 'none');
+            popup.style.display = 'block';
+            image.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     </script>
 </body>
