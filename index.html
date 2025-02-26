@@ -64,7 +64,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             margin-bottom: 20px;
-        } 
+        }
         .popup {
             position: absolute;
             background: darkred;
@@ -184,7 +184,7 @@
                 order: 1;
                 width: 100%;
             }
-/*             .list-heading-wrapper {
+            .list-heading-wrapper {
                 order: 2;
                 width: 100%;
                 text-align: center;
@@ -195,9 +195,9 @@
                 width: 90%;
                 text-align: left;
                 margin-bottom: 10px;
-            } */
+            }
         }
-             .main-container {
+            .main-container {
                 flex-direction: column;
                 align-items: center;
             }
@@ -210,22 +210,22 @@
                 order: 2;
                 width: 100%;
             }
-/*             .list {
+            .list {
                 order: 3;
                 width: 90%;
                 text-align: left;
                 margin-bottom: 10px;
-            } */
+            }
             .main-container {
                 flex-direction: column;
                 align-items: center;
             }
-/*             .list {
+            .list {
                 width: 90%;
                 text-align: left;
                 margin-bottom: 10px;
                 order: 2;
-            } */
+            }
             .image-container {
                 width: 100%;
                 order: 1;
@@ -250,24 +250,24 @@
                 width: 100%;
                 order: 1;
             }
-/*             .list ul {
+            .list ul {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 padding: 0;
-            } */
+            }
             .main-container {
                 flex-direction: column;
                 align-items: center;
             }
-/*             .list {
+            .list {
                 width: 80%;
                 text-align: center;
                 margin-bottom: 10px;
-            } */
+            }
             .image-container {
                 width: 100%;
-            } 
+            }
         }
     </style>
 </head>
@@ -312,7 +312,14 @@
         </div>
     </div>
     <script>
+        function scrollToPopup(popupId) {
+            const popup = document.getElementById(popupId);
+            if (popup) {
+                popup.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
         function showPopup(popupId) {
+            scrollToPopup(popupId);
             document.querySelectorAll('.popup').forEach(popup => popup.style.display = 'none');
             document.getElementById(popupId).style.display = 'block';
             setTimeout(() => {
