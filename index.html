@@ -85,7 +85,97 @@
             border-style: solid;
             border-color: darkred transparent transparent transparent;
         }
+        @media (min-width: 769px) {
+            /* Styles for Laptop/Desktop */
+            .main-container {
+                display: flex;
+                justify-content: space-between;
+                width: 90%;
+                max-width: 1200px;
+                position: relative;
+            }
+            .list-heading-wrapper {
+                text-align: center;
+                margin-top: 20px;
+            }
+            .list {
+                width: 15%;
+                min-width: 120px;
+                text-align: left;
+                padding: 5px;
+                background: #fff;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                border-radius: 10px;
+                margin: 0 20px;
+            }
+            .list ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+            .list li {
+                background: #ddd;
+                margin: 3px 0;
+                padding: 5px;
+                border-radius: 5px;
+                cursor: pointer;
+                text-align: left;
+                font-size: 14px;
+            }
+            .image-container {
+                width: 50%;
+                max-width: 600px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+            }
+        }
+
         @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .image-container {
+                order: 1;
+                width: 100%;
+            }
+            .list-heading-wrapper {
+                order: 2;
+                width: 100%;
+                text-align: center;
+                margin-top: 20px;
+            }
+            .list {
+                order: 3;
+                width: 90%;
+                text-align: left;
+                margin-bottom: 10px;
+                background: none;
+                box-shadow: none;
+                padding: 0;
+            }
+            .list ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+            .list li {
+                background: none;
+                margin: 5px 0;
+                padding: 8px;
+                border-radius: 5px;
+                cursor: pointer;
+                text-align: left;
+                font-size: 16px;
+                transition: background 0.3s;
+            }
+            .list li:hover {
+                background: rgba(200, 0, 0, 0.2);
+            }
             .main-container {
                 flex-direction: column;
                 align-items: center;
