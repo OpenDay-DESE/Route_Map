@@ -90,6 +90,25 @@
                 flex-direction: column;
                 align-items: center;
             }
+            .list-heading {
+                order: 1;
+                text-align: center;
+                margin-top: 20px;
+            }
+            .image-container {
+                order: 2;
+                width: 100%;
+            }
+            .list {
+                order: 3;
+                width: 90%;
+                text-align: left;
+                margin-bottom: 10px;
+            }
+            .main-container {
+                flex-direction: column;
+                align-items: center;
+            }
             .list {
                 width: 90%;
                 text-align: left;
@@ -143,8 +162,9 @@
 </head>
 <body>
     <h1 style="text-align: center; margin-top: 20px;">DEMO LOCATOR</h1>
-    <h2 style="text-align: center; margin-top: 20px;">List of Demos</h2>
+    
     <div class="main-container">
+        <h2 class="list-heading">List of Demos</h2>
         <div class="list">
             <ul>
                 <li onclick="showPopup('popup1')">A. Indigenous fabrication of flexible neural implants</li>
