@@ -18,11 +18,33 @@
             scroll-behavior: smooth;
         }
         
+        .top-strip {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        .top-strip img {
+            height: 40px;
+            width: auto;
+        }
+        .top-strip .center-img {
+            margin: 0 auto;
+        }
+
         h1 {
             font-size: 32px;
             color: black;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px;
+            margin-top: 2cm; /* Adjusted for fixed top strip */
         }
 
         .content-container {
@@ -31,6 +53,7 @@
             align-items: flex-start;
             width: 90%;
             max-width: 1200px;
+            margin-top: 20px;
         }
 
         .list-container {
@@ -39,7 +62,7 @@
             margin-right: 20px;
         }
 
-        .list-container ul {
+        .list-container ol {
             list-style-type: square;
             padding: 0;
             font-size: 14px;
@@ -103,6 +126,7 @@
             border-style: solid;
             border-color: #8B0000 transparent transparent transparent;
         }
+
         #popup1 { top: 42%; left: 42%; } 
         #popup2 { top: 42%; left: 45%; } 
         #popup3 { top: 55%; left: 41%; } 
@@ -133,25 +157,50 @@
         #popup23 { top: 65%; left: 21%; } 
         #popup24 { top: 61%; left: 21%; } 
 
+        #popup25 { top: 49%; left: 10%; } 
+        #popup26 { top: 43%; left: 8%; } 
+        #popup27 { top: 45%; left: 8%; } 
+        #popup28 { top: 46%; left: 5%; } 
+        #popup29 { top: 46%; left: 3%; } 
+
+        #popup30 { top: 44%; left: 1%; } 
+        #popup31 { top: 41%; left: 1%; } 
+        #popup32 { top: 38%; left: 1%; } 
+        #popup33 { top: 34%; left: 1%; } 
+        #popup34 { top: 31%; left: 1%; } 
+        #popup35 { top: 22%; left: 1%; } 
+        #popup36 { top: 22%; left: 4%; } 
+        #popup37 { top: 22%; left: 7%; } 
+
+        #popup38 { top: 17%; left: 14%; } 
+
+        #popup39 { top: 17%; left: 22%; }
+
+        #popup40 { top: 68%; left: 24%; } 
+        #popup41 { top: 68%; left: 23%; } 
+        #popup42 { top: 67%; left: 21%; } 
+        #popup43 { top: 65%; left: 21%; } 
+        #popup44 { top: 61%; left: 21%; } 
+
         @media (max-width: 768px) {  /* Tablets & large phones */
-        #popup1 { top: 22%; left: 26%; } 
-        #popup2 { top: 22%; left: 28%; } 
-        #popup3 { top: 34%; left: 25%; } 
-        #popup4 { top: 39%; left: 26%; } 
+        #popup1 { top: 30%; left: 28%; } 
+        #popup2 { top: 42%; left: 45%; } 
+        #popup3 { top: 55%; left: 41%; } 
+        #popup4 { top: 59%; left: 42%; } 
 
-        #popup5 { top: 43%; left: 26%; } 
-        #popup6 { top: 47%; left: 25%; } 
-        #popup7 { top: 47%; left: 23%; } 
+        #popup5 { top: 65%; left: 42%; } 
+        #popup6 { top: 68%; left: 41%; } 
+        #popup7 { top: 68%; left: 39%; } 
 
-        #popup8 { top: 47%; left: 21%; } 
-        #popup9 { top: 47%; left: 20%; } 
-        #popup10 { top: 47%; left: 19%; } 
+        #popup8 { top: 68%; left: 38%; } 
+        #popup9 { top: 68%; left: 37%; } 
+        #popup10 { top: 68%; left: 35%; } 
 
-        #popup11 { top: 47%; left: 17%; } 
-        #popup12 { top: 47%; left: 16%; } 
-        #popup13 { top: 47%; left: 15%; } 
-        #popup14 { top: 43%; left: 13%; } 
-        #popup15 { top: 40%; left: 13%; } 
+        #popup11 { top: 68%; left: 33%; } 
+        #popup12 { top: 68%; left: 32%; } 
+        #popup13 { top: 68%; left: 31%; } 
+        #popup14 { top: 65%; left: 29%; } 
+        #popup15 { top: 61%; left: 29%; } 
 
         #popup16 { top: 39%; left: 11%; } 
         #popup17 { top: 42%; left: 11%; } 
@@ -176,10 +225,23 @@
         #popup35 { top: 3%; left: -14%; }
         #popup36 { top: 3%; left: -11%; } 
         #popup37 { top: 3%; left: -9%; }
-        #popup38 { top: 3%; left: -9%; }
+
+        #popup38 { top: -3%; left: -1%; }
+        #popup39 { top: -3%; left: 7%; }
         }
 
         @media (max-width: 768px) {
+
+            .top-strip {
+                height: 50px;
+                padding: 0 10px;
+            }
+            .top-strip img {
+                height: 30px;
+            }
+            h1 {
+                margin-top: 70px;
+            }
             .content-container {
                 flex-direction: column;
                 align-items: center;
@@ -193,17 +255,22 @@
                 width: 100%;
             }
             .image-container img {
-                width: 100%;  /* Make the image take full width of its container */
-                max-width: none; /* Remove any max-width restriction */
+                width: 100%;
+                max-width: none;
             }
         }
     </style>
 </head>
 <body>
+    <div class="top-strip">
+        <img src="img/dese_white.png" alt="Left Image">
+        <img src="img/center_white.png" alt="Center Image" class="center-img">
+        <img src="img/iisc_white.png" alt="Right Image" style="margin-right: 25px;">
+    </div>
     <h1>Demo Locator</h1>
     <div class="content-container">
         <div class="list-container">
-            <ul>
+            <ol>
                 <script>
                     const items = ["Musical Tesla Coil","Block Drop - The LED Matrix Challenge/ Tetris","Autonomous control for RC car","Energy Internet","Range extension of EV by battery Paralleling","Gesture Recognition using mmWave Radar","Neuromorphic Camera","Real-time audio and video inference using RAMAN TinyML Accelerator","SQ-CARS: Scalable Quantum Control and Readout System","TinyML: Powering the Edge with Machine Learning","Robotic Arm","Building Energy Management System/ Smart Home","Drone Maneuvering with Reaction Wheel","Mind the Tilt !/ Gesture Controlled Robot",
                     "Virtual Shooting","Indigenous fabrication of flexible neural implants","Optical modality for breast cancer tumor delineation","Cytology Scanner","Visuovein","HFIS: Handheld Fluorescence Imaging System","QCM for liver cirrhosis screening","Electrical Impedance-based Multiplexed Biosensor for Point-of-Care Diagnosis/ Biosensing Platform for Oran Cancer Screening","Headband for hearing screening/EEG based Auditory Hearing Screening Systems","Polarization-based Optical system for Heart Tissue Characterization","Buzz-wire","TYLOR : TDC-based Low-Overhead Synthesizable Power SCA Countermeasure on FPGAs",
@@ -214,7 +281,7 @@
                         document.write(`<li onclick="showPopup('popup${index + 1}', 'image${index < 40 ? 1 : (index < 47 ? 2 : 3)}')">${item}</li>`);
                     });
                 </script>
-            </ul>
+            </ol>
         </div>
 
         <div class="image-section">
